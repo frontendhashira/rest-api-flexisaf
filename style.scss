@@ -1,0 +1,234 @@
+$deepTwilight: oklch(0.1278 0.0322 256.6);
+$midnightBlue: oklch(0.1511 0.036 260);
+$vividViolet: oklch(0.5294 0.1983 302.3);
+$neonOrchid: oklch(0.6598 0.2359 311.3);
+$electricIndigo: oklch(0.7135 0.1985 298.2);
+$pastelPurple: oklch(0.7139 0.1254 302.9);
+$amberGlow: oklch(0.8234 0.1533 64.7);
+$amberGlowH: oklch(0.8037 0.1762 77.3);
+$btnDelete: oklch(0.5407 0.2477 26.5);
+$btnDeleteH: oklch(0.6249 0.2471 26.5);
+$btnGet: oklch(0.642 0.278 148.9 / 0.58);
+$btnGetH: oklch(0.642 0.278 148.9 / 0.31);
+$neutral100: oklch(1 0 0);
+$neutral200: oklch(0.9188 0.0456 265.8);
+$neutral300: oklch(0.9207 0.0446 265.6);
+$neutralBorder: oklch(0.2078 0.0542 264.5);
+$bgField: oklch(0.155 0.038 267);
+$bgContent: oklch(0.084 0.03 267.5);
+
+$orchidBlitz: linear-gradient(128.49deg, $neonOrchid 20%, $vividViolet 70%);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Inter, Roboto, 'Helvetica Neue', Arial, sans-serif;
+  min-height: 100vh;
+  padding: 20px;
+  background: $deepTwilight;
+  color: $neutral200;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.page-title {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  background: $orchidBlitz;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section {
+  background: $midnightBlue;
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  border: 1px solid $neutralBorder;
+
+  &-title {
+    font-size: 1.2rem;
+    color: $neutral100;
+    margin-bottom: 1rem;
+  }
+}
+
+.btn {
+  padding: 0.8rem 1.6rem;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.25s ease;
+  display: inline-block;
+  margin: 0.5rem 0.25rem;
+  font-size: 1rem;
+
+  &:focus {
+    outline: 3px solid $neutral100;
+    outline-offset: 3px;
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  &--get {
+    background: $btnGet;
+    color: $neutral100;
+
+    &:hover,
+    &:focus {
+      background: $btnGetH;
+    }
+  }
+
+  &--post {
+    background: $vividViolet;
+    color: $neutral100;
+
+    &:hover,
+    &:focus {
+      background: $neonOrchid;
+    }
+  }
+
+  &--put {
+    background: $amberGlow;
+    color: $deepTwilight;
+
+    &:hover,
+    &:focus {
+      background: $amberGlowH;
+    }
+  }
+
+  &--delete {
+    background: $btnDelete;
+    color: $neutral100;
+
+    &:hover,
+    &:focus {
+      background: $btnDeleteH;
+    }
+  }
+}
+
+.form-group {
+  margin-bottom: 1rem;
+
+  label {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-size: 0.95rem;
+    color: $neutral300;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    padding: 0.7rem;
+    border-radius: 6px;
+    border: 2px solid $electricIndigo;
+    background: $bgField;
+    color: $neutral200;
+    font-family: inherit;
+
+    &:focus {
+      outline: none;
+      border-color: $pastelPurple;
+    }
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+}
+
+.response-container {
+  margin-top: 1rem;
+  display: none;
+
+  &.visible {
+    display: block;
+  }
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  background: $electricIndigo;
+  color: $neutral100;
+}
+
+.status-error {
+  background: $btnDeleteH;
+}
+
+.repo-item {
+  background: $midnightBlue;
+  border-left: 4px solid $electricIndigo;
+  padding: 1rem;
+  margin: 0.8rem 0;
+  border-radius: 6px;
+
+  h5 {
+    margin-bottom: 0.5rem;
+    color: $electricIndigo;
+  }
+
+  p {
+    font-size: 0.9rem;
+    margin: 0.3rem 0;
+  }
+}
+
+details {
+  margin-top: 1rem;
+
+  summary {
+    cursor: pointer;
+    color: $electricIndigo;
+    font-weight: 500;
+
+    &:hover {
+      color: $pastelPurple;
+    }
+  }
+
+  pre {
+    margin-top: 0.5rem;
+    background: $bgContent;
+    padding: 0.8rem;
+    border-radius: 6px;
+    font-family: ui-monospace, monospace;
+    font-size: 0.9rem;
+    overflow-x: auto;
+    color: $neutral300;
+  }
+}
+
+.loading {
+  text-align: center;
+  padding: 1rem;
+  color: $electricIndigo;
+}
+
+.error-text {
+  color: $btnDeleteH;
+}
